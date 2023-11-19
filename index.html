@@ -18,7 +18,7 @@
             font-family: calibri;
             font-size: 3.5em;
             margin: 30px;
-            color: rgb(0 0 0 / 32%);
+            color: #ccc;
             animation: fadeIn 2s;
         }
 
@@ -31,7 +31,7 @@
             border-radius: 10px;
         }
 
-        .question, .submit-btn, select, input[type="text"], .scanner {
+        .question, .submit-btn, select, input[type="text"], .scanner, .analysis {
             margin: 20px;
             padding: 10px;
             font-size: 1em;
@@ -70,6 +70,26 @@
             cursor: pointer;
         }
 
+        .analysis {
+            display: none; /* Hide initially */
+            text-align: left;
+        }
+
+        .graph-placeholder {
+            background-color: #ddd;
+            height: 50px;
+            position: relative;
+            border-radius: 5px;
+        }
+
+        .graph-bar {
+            background-color: #e74c3c;
+            height: 100%;
+            width: 70%; /* Example percentage */
+            position: absolute;
+            border-radius: 5px;
+        }
+
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
@@ -87,7 +107,7 @@
                 margin: 20px;
             }
 
-            .question, .submit-btn, select, input[type="text"], .scanner {
+            .question, .submit-btn, select, input[type="text"], .scanner, .analysis {
                 width: calc(100% - 20px);
                 padding: 8px;
             }
@@ -101,7 +121,7 @@
 </head>
 <body>
 
-    <div class="app-name">ATHENA</div>
+    <div class="app-name">Athena</div>
 
     <div class="container">
         <div class="question">
@@ -120,7 +140,15 @@
             </select>
         </div>
 
-        <div class="scanner" onclick="startScanning()">Tap to Scan</div>
+        <div class="scanner" onclick="showAnalysis()">Tap to Scan</div>
+
+        <div class="analysis">
+            <strong>Analysis Result:</strong>
+            <p>The scanned item has a high sugar content. Given your pre-diabetic condition, it is advisable to avoid this food.</p>
+            <div class="graph-placeholder">
+                <div class="graph-bar"></div>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -142,9 +170,11 @@
             }
         }
 
-        function startScanning() {
-            // Placeholder for scanner functionality
+        function showAnalysis() {
+            // Placeholder for actual scanning functionality
             alert("Scanning... (Placeholder functionality)");
+            var analysisDiv = document.getElementsByClassName('analysis')[0];
+            analysisDiv.style.display = 'block';
         }
     </script>
 
