@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Athena</title>
+    <title>Athena App</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap'); /* Importing a Google Font */
+
         body {
             font-family: 'Arial', sans-serif;
             text-align: center;
@@ -13,9 +15,10 @@
         }
 
         .app-name {
-            font-size: 2.5em;
+            font-family: calibri;
+            font-size: 3.5em;
             margin: 30px;
-            color: #4a90e2;
+            color: rgb(0 0 0 / 32%);
             animation: fadeIn 2s;
         }
 
@@ -60,12 +63,9 @@
         .scanner {
             height: 150px;
             display: none; /* Hide initially */
-            background-image: linear-gradient(45deg, #f0f0f0 25%, transparent 25%, transparent 50%, #f0f0f0 50%, #f0f0f0 75%, transparent 75%, transparent);
-            background-size: 28px 28px;
-            color: #4a4a4a;
-            text-align: center;
-            line-height: 150px;
-            font-size: 1.5em;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100%" height="100%" fill="none" stroke="%234a4a4a" stroke-width="4"/><path d="M0,20 H20 V0 M80,0 V20 H100 M100,80 H80 V100 M20,100 V80 H0" stroke="%234a4a4a" stroke-width="4"/></svg>');
+            background-repeat: no-repeat;
+            background-position: center;
             border: 2px solid #4a4a4a;
             cursor: pointer;
         }
@@ -74,11 +74,34 @@
             from { opacity: 0; }
             to { opacity: 1; }
         }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            .container {
+                width: 90%;
+                padding: 10px;
+            }
+
+            .app-name {
+                font-size: 2em;
+                margin: 20px;
+            }
+
+            .question, .submit-btn, select, input[type="text"], .scanner {
+                width: calc(100% - 20px);
+                padding: 8px;
+            }
+
+            .scanner {
+                height: 120px;
+                background-size: 80px 80px;
+            }
+        }
     </style>
 </head>
 <body>
 
-    <div class="app-name">Athena</div>
+    <div class="app-name">ATHENA</div>
 
     <div class="container">
         <div class="question">
@@ -97,7 +120,7 @@
             </select>
         </div>
 
-        <div class="scanner" onclick="startScanning()">Click to Scan</div>
+        <div class="scanner" onclick="startScanning()">Tap to Scan</div>
     </div>
 
     <script>
