@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Athena App</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #e6e6e6;
+            color: #333;
+        }
+
+        .app-name {
+            font-size: 2.5em;
+            margin: 30px;
+            color: #4a90e2;
+            animation: fadeIn 2s;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .question, .submit-btn, select, input[type="text"], .scanner {
+            margin: 20px;
+            padding: 10px;
+            font-size: 1em;
+            width: calc(100% - 40px);
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .question {
+            display: none; /* Hide initially */
+        }
+
+        .question:first-of-type {
+            display: block; /* Show the first question by default */
+        }
+
+        .submit-btn {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: #45a049;
+        }
+
+        .scanner {
+            height: 150px;
+            display: none; /* Hide initially */
+            background-image: linear-gradient(45deg, #f0f0f0 25%, transparent 25%, transparent 50%, #f0f0f0 50%, #f0f0f0 75%, transparent 75%, transparent);
+            background-size: 28px 28px;
+            color: #4a4a4a;
+            text-align: center;
+            line-height: 150px;
+            font-size: 1.5em;
+            border: 2px solid #4a4a4a;
+            cursor: pointer;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="app-name">Athena</div>
+
+    <div class="container">
+        <div class="question">
+            What are your health problems?
+            <input type="text" id="healthProblems" name="healthProblems" />
+            <button class="submit-btn" onclick="showItemSelection()">Submit</button>
+        </div>
+
+        <div class="question">
+            What item do you want to scan?
+            <select id="itemType" name="itemType" onchange="showScannerArea()">
+                <option value="">Select...</option>
+                <option value="food">Food</option>
+                <option value="cosmetics">Cosmetics</option>
+                <option value="others">Others</option>
+            </select>
+        </div>
+
+        <div class="scanner" onclick="startScanning()">Click to Scan</div>
+    </div>
+
+    <script>
+        function showItemSelection() {
+            var healthInput = document.getElementById('healthProblems').value;
+            if (healthInput.trim() !== '') {
+                var itemSelectionDiv = document.getElementsByClassName('question')[1];
+                itemSelectionDiv.style.display = 'block';
+            } else {
+                alert('Please enter your health problems before proceeding.');
+            }
+        }
+
+        function showScannerArea() {
+            var itemType = document.getElementById('itemType').value;
+            if (itemType) {
+                var scannerDiv = document.getElementsByClassName('scanner')[0];
+                scannerDiv.style.display = 'block';
+            }
+        }
+
+        function startScanning() {
+            // Placeholder for scanner functionality
+            alert("Scanning... (Placeholder functionality)");
+        }
+    </script>
+
+</body>
+</html>
